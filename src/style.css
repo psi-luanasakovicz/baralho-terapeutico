@@ -873,6 +873,103 @@ body.focused .focus-overlay {
 }
 
 /* ── Responsive card sizes ── */
+@media (min-width: 1024px) {
+    :root {
+        --card-width: 300px;
+        --card-height: 420px;
+        --deck-width: 260px;
+        --deck-height: 364px;
+    }
+
+    .game-stage {
+        gap: clamp(5rem, 12vw, 12rem);
+        padding: clamp(2.5rem, 5vw, 4rem);
+        min-height: calc(100dvh - 88px);
+    }
+
+    .deck-zone,
+    .card-zone {
+        gap: 1.25rem;
+    }
+
+    .deck-zone__label,
+    .card-zone__label {
+        font-size: 0.8rem;
+    }
+
+    .deck-zone__hint {
+        font-size: 0.9rem;
+        max-width: 240px;
+    }
+
+    .card-area {
+        width: calc(var(--card-width) + 64px);
+        height: calc(var(--card-height) + 64px);
+    }
+
+    .card-placeholder {
+        font-size: 0.95rem;
+    }
+
+    .card-placeholder__icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.25rem;
+    }
+
+    .deck-stack {
+        width: calc(var(--deck-width) + 56px);
+        height: calc(var(--deck-height) + 56px);
+    }
+
+    .playing-card .text-card {
+        padding: 1.75rem 1.35rem 1.15rem;
+    }
+
+    .playing-card .text-card__question {
+        font-size: 1.05rem;
+    }
+
+    .playing-card .text-card__cover-title {
+        font-size: 1rem;
+    }
+
+    .playing-card .text-card__icon {
+        font-size: 2.6rem;
+    }
+
+    .playing-card .text-card__tagline {
+        font-size: 0.72rem;
+    }
+
+    body.focused .card {
+        animation: cardFocusDesktop 0.6s var(--ease-out) forwards;
+    }
+}
+
+@media (min-width: 1280px) {
+    :root {
+        --card-width: 340px;
+        --card-height: 476px;
+        --deck-width: 290px;
+        --deck-height: 406px;
+    }
+
+    .game-stage {
+        gap: 14rem;
+    }
+
+    .playing-card .text-card__question {
+        font-size: 1.12rem;
+    }
+}
+
+@keyframes cardFocusDesktop {
+    to {
+        transform: scale(1.05);
+    }
+}
+
 @media (max-width: 768px) {
     :root {
         --card-width: 210px;
