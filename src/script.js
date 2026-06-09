@@ -233,3 +233,7 @@ class BaralhoGame {
 document.addEventListener('DOMContentLoaded', () => {
     new BaralhoGame();
 });
+
+export function startBaralhoGame() {
+    new BaralhoGame();
+}
