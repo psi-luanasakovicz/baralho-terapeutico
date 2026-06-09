@@ -1,89 +1,86 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#F5F0E8">
     <title>Baralhos Terapêuticos</title>
-        <link rel="stylesheet" href="style.css?v=21">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Tela de Seleção de Baralhos -->
-    <div id="selectionScreen">
-        <div class="selection-area">
-            <h1 class="main-title">Escolha seu Baralho</h1>
-            <div class="decks-grid">
-                <div class="deck-option" data-deck="sentimentos-e-expectativas" data-color="#FFD21F">
-                    <div class="deck-preview">
-                        <div class="preview-card" style="background-color: #FFD21F !important; border: 3px solid #FFD21F !important;">
-                            <img src="Baralhos/Sentimentos e expectativas/Frente.png" alt="Sentimentos e expectativas">
-                        </div>
-                    </div>
-                    <h3>Sentimentos e expectativas</h3>
-                </div>
-                
-                <div class="deck-option" data-deck="autonomia-e-direitos" data-color="#401268">
-                    <div class="deck-preview">
-                        <div class="preview-card" style="background-color: #401268 !important; border: 3px solid #401268 !important;">
-                            <img src="Baralhos/Autonomia e direitos/Frente.png" alt="Autonomia e direitos">
-                        </div>
-                    </div>
-                    <h3>Autonomia e direitos</h3>
-                </div>
-                
-                <div class="deck-option" data-deck="entendendo-a-psicoterapia" data-color="#004E7A">
-                    <div class="deck-preview">
-                        <div class="preview-card" style="background-color: #004E7A !important; border: 3px solid #004E7A !important;">
-                            <img src="Baralhos/Entendendo a psicoterapia/Frente.png" alt="Entendendo a psicoterapia">
-                        </div>
-                    </div>
-                    <h3>Entendendo a psicoterapia</h3>
-                </div>
-                
-                <div class="deck-option" data-deck="mitos-e-verdades" data-color="#007A3F">
-                    <div class="deck-preview">
-                        <div class="preview-card" style="background-color: #007A3F !important; border: 3px solid #007A3F !important;">
-                            <img src="Baralhos/Mitos e Verdades/Frente.png" alt="Mitos e Verdades">
-                        </div>
-                    </div>
-                    <h3>Mitos e Verdades</h3>
-                </div>
-                
-                <div class="deck-option" data-deck="o-papel-do-psicologo" data-color="#CC4E00">
-                    <div class="deck-preview">
-                        <div class="preview-card" style="background-color: #CC4E00 !important; border: 3px solid #CC4E00 !important;">
-                            <img src="Baralhos/O papel do psicólogo/Frente.png" alt="O papel do psicólogo">
-                        </div>
-                    </div>
-                    <h3>O papel do psicólogo</h3>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="ambient-bg" aria-hidden="true"></div>
 
-    <!-- Tela do Jogo (inicialmente escondida) -->
-    <div class="container" id="gameScreen" style="display: none;">
-        <div class="game-area">
-            <div class="back-button" id="backButton">← Voltar</div>
-            <div class="deck-title" id="currentDeckTitle">Baralho Terapêutico</div>
-            <div class="deck" id="deck">
-                <div class="deck-card"></div>
-                <div class="deck-layer-1"></div>
-                <div class="deck-layer-2"></div>
-                <div class="deck-layer-3"></div>
-                <div class="deck-layer-4"></div>
-                <div class="deck-layer-5"></div>
-            </div>
-            
-            <div class="card-area" id="cardArea">
-                <!-- A carta aparecerá aqui -->
-            </div>
-            <div class="card-subtitle">Se eu falar, você escuta?</div>
-        </div>
-    </div>
+    <!-- Tela de Seleção -->
+    <section id="selectionScreen" class="screen screen--selection">
+        <header class="hero">
+            <span class="hero__badge">Ferramenta terapêutica</span>
+            <h1 class="hero__title">Baralhos Terapêuticos</h1>
+            <p class="hero__subtitle">Escolha um baralho, tire uma carta e deixe a reflexão começar.</p>
+        </header>
+        <div class="decks-grid" id="decksGrid"></div>
+    </section>
 
-    <script src="script.js?v=6"></script>
+    <!-- Tela do Jogo -->
+    <section id="gameScreen" class="screen screen--game hidden">
+        <header class="game-header">
+            <button type="button" class="btn-back" id="backButton" aria-label="Voltar para seleção de baralhos">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Voltar
+            </button>
+            <div class="game-header__info">
+                <h2 class="game-header__title" id="currentDeckTitle">Baralho Terapêutico</h2>
+                <span class="game-header__counter" id="cardsRemaining"></span>
+            </div>
+        </header>
+
+        <main class="game-stage">
+            <div class="deck-zone">
+                <p class="deck-zone__label">Baralho</p>
+                <div class="deck-stack" id="deck" role="button" tabindex="0" aria-label="Tirar uma carta">
+                    <div class="deck-stack__glow" aria-hidden="true"></div>
+                    <div class="deck-stack__shadow" aria-hidden="true"></div>
+                    <div class="deck-stack__scene">
+                        <div class="deck-stack__layer deck-stack__layer--5"></div>
+                        <div class="deck-stack__layer deck-stack__layer--4"></div>
+                        <div class="deck-stack__layer deck-stack__layer--3"></div>
+                        <div class="deck-stack__layer deck-stack__layer--2"></div>
+                        <div class="deck-stack__layer deck-stack__layer--1"></div>
+                        <div class="deck-stack__top deck-card">
+                            <div class="deck-card__face">
+                                <div class="deck-card__content" id="deckCardContent"></div>
+                            </div>
+                            <div class="deck-card__shine" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="deck-zone__hint" id="drawHint">Toque no baralho para tirar uma carta</p>
+            </div>
+
+            <div class="card-zone">
+                <p class="card-zone__label">Sua carta</p>
+                <div class="card-area" id="cardArea">
+                    <div class="card-placeholder" id="cardPlaceholder">
+                        <span class="card-placeholder__icon" aria-hidden="true">✦</span>
+                        <p>A carta aparecerá aqui</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="game-footer">
+            <p class="game-footer__tagline">Se eu falar, você escuta?</p>
+        </footer>
+
+        <div class="focus-overlay" id="focusOverlay" aria-hidden="true"></div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
 </body>
 </html>
