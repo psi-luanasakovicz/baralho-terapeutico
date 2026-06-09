@@ -83,7 +83,7 @@ button {
 }
 
 body.focused .ambient-bg {
-    filter: brightness(0.55);
+    filter: brightness(0.72);
 }
 
 /* ── Screens ── */
@@ -356,26 +356,33 @@ body.focused .ambient-bg {
 }
 
 body.focused .deck-zone {
-    opacity: 0.35;
+    opacity: 0.45;
     transform: scale(0.92);
     pointer-events: none;
+}
+
+body.focused .deck-zone__label,
+body.focused .deck-zone__hint,
+body.focused .card-zone__label {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .deck-zone__label,
 .card-zone__label {
     font-size: 0.7rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--text-secondary);
 }
 
 .deck-zone__hint {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     text-align: center;
     max-width: 180px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* ── Deck stack ── */
@@ -647,11 +654,19 @@ body.focused .deck-zone {
 
 .text-card__tagline {
     font-size: clamp(0.52rem, 1.4vw, 0.62rem);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.3;
-    opacity: 0.75;
     margin-top: auto;
     flex-shrink: 0;
+}
+
+.text-card--cover .text-card__tagline {
+    opacity: 0.92;
+}
+
+.text-card--question .text-card__tagline {
+    color: #3d3832;
+    opacity: 1;
 }
 
 .text-card--mini {
@@ -833,7 +848,7 @@ body.focused .card .card__inner {
 }
 
 body.focused .game-footer {
-    opacity: 0.3;
+    opacity: 0.45;
 }
 
 .game-footer__tagline {
@@ -940,6 +955,12 @@ body.focused .focus-overlay {
 
     .playing-card .text-card__tagline {
         font-size: 0.72rem;
+        font-weight: 500;
+    }
+
+    .playing-card .text-card--question .text-card__tagline {
+        font-size: 0.78rem;
+        color: #3d3832;
     }
 
     body.focused .card {
