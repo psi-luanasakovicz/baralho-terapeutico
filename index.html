@@ -1,0 +1,89 @@
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Baralhos Terapêuticos</title>
+        <link rel="stylesheet" href="style.css?v=21">
+</head>
+<body>
+    <!-- Tela de Seleção de Baralhos -->
+    <div id="selectionScreen">
+        <div class="selection-area">
+            <h1 class="main-title">Escolha seu Baralho</h1>
+            <div class="decks-grid">
+                <div class="deck-option" data-deck="sentimentos-e-expectativas" data-color="#FFD21F">
+                    <div class="deck-preview">
+                        <div class="preview-card" style="background-color: #FFD21F !important; border: 3px solid #FFD21F !important;">
+                            <img src="Baralhos/Sentimentos e expectativas/Frente.png" alt="Sentimentos e expectativas">
+                        </div>
+                    </div>
+                    <h3>Sentimentos e expectativas</h3>
+                </div>
+                
+                <div class="deck-option" data-deck="autonomia-e-direitos" data-color="#401268">
+                    <div class="deck-preview">
+                        <div class="preview-card" style="background-color: #401268 !important; border: 3px solid #401268 !important;">
+                            <img src="Baralhos/Autonomia e direitos/Frente.png" alt="Autonomia e direitos">
+                        </div>
+                    </div>
+                    <h3>Autonomia e direitos</h3>
+                </div>
+                
+                <div class="deck-option" data-deck="entendendo-a-psicoterapia" data-color="#004E7A">
+                    <div class="deck-preview">
+                        <div class="preview-card" style="background-color: #004E7A !important; border: 3px solid #004E7A !important;">
+                            <img src="Baralhos/Entendendo a psicoterapia/Frente.png" alt="Entendendo a psicoterapia">
+                        </div>
+                    </div>
+                    <h3>Entendendo a psicoterapia</h3>
+                </div>
+                
+                <div class="deck-option" data-deck="mitos-e-verdades" data-color="#007A3F">
+                    <div class="deck-preview">
+                        <div class="preview-card" style="background-color: #007A3F !important; border: 3px solid #007A3F !important;">
+                            <img src="Baralhos/Mitos e Verdades/Frente.png" alt="Mitos e Verdades">
+                        </div>
+                    </div>
+                    <h3>Mitos e Verdades</h3>
+                </div>
+                
+                <div class="deck-option" data-deck="o-papel-do-psicologo" data-color="#CC4E00">
+                    <div class="deck-preview">
+                        <div class="preview-card" style="background-color: #CC4E00 !important; border: 3px solid #CC4E00 !important;">
+                            <img src="Baralhos/O papel do psicólogo/Frente.png" alt="O papel do psicólogo">
+                        </div>
+                    </div>
+                    <h3>O papel do psicólogo</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela do Jogo (inicialmente escondida) -->
+    <div class="container" id="gameScreen" style="display: none;">
+        <div class="game-area">
+            <div class="back-button" id="backButton">← Voltar</div>
+            <div class="deck-title" id="currentDeckTitle">Baralho Terapêutico</div>
+            <div class="deck" id="deck">
+                <div class="deck-card"></div>
+                <div class="deck-layer-1"></div>
+                <div class="deck-layer-2"></div>
+                <div class="deck-layer-3"></div>
+                <div class="deck-layer-4"></div>
+                <div class="deck-layer-5"></div>
+            </div>
+            
+            <div class="card-area" id="cardArea">
+                <!-- A carta aparecerá aqui -->
+            </div>
+            <div class="card-subtitle">Se eu falar, você escuta?</div>
+        </div>
+    </div>
+
+    <script src="script.js?v=6"></script>
+</body>
+</html>
